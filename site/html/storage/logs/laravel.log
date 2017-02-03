@@ -341,3 +341,15 @@ Stack trace:
 #25 /var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(123): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #26 /var/www/html/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #27 {main}  
+[2017-02-03 14:49:21] local.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "route:lists" is not defined.
+
+Did you mean one of these?
+    route:list
+    route:cache
+    route:clear in /var/www/html/vendor/symfony/console/Application.php:545
+Stack trace:
+#0 /var/www/html/vendor/symfony/console/Application.php(186): Symfony\Component\Console\Application->find('route:lists')
+#1 /var/www/html/vendor/symfony/console/Application.php(120): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(123): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /var/www/html/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  

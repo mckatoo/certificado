@@ -1,8 +1,11 @@
 #!/bin/bash
+
+container=certificado-dev
+
 case $1 in
-  start) docker exec -ti cadinternet service php7.0-fpm $1 ;;
-  stop) docker exec -ti cadinternet service php7.0-fpm $1 ;;
-  status) docker exec -ti cadinternet service php7.0-fpm $1 ;;
-  restart) docker exec -ti cadinternet service php7.0-fpm $1 ;;
+  start) docker exec -ti $container service php7.0-fpm $1 ;;
+  stop) docker exec -ti $container service php7.0-fpm $1 ;;
+  status) docker exec -ti $container service php7.0-fpm $1 ;;
+  restart) docker exec -ti $container service php7.0-fpm $1 ;;
   *) echo "Só é aceitavel os comando start, stop ou restart" ;;
 esac
