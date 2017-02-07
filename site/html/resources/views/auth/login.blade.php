@@ -1,5 +1,15 @@
 @extends('layouts.base')
 
+@section('linkcss')
+    <link rel="stylesheet" href="{{ asset('css/base.css') }}">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+@stop
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -55,8 +65,6 @@
     </div>
 @endsection
 
-<script>
-    setTimeout(function(){
-      $('.alert').fadeOut();
-    }, 3000);
-</script>
+@section('scriptjs')
+    <script src="{{ mix('js/base.js') }}"></script>
+@stop

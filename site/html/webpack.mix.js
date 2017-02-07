@@ -1,4 +1,5 @@
 const { mix } = require('laravel-mix');
+mix.disableNotifications();
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +12,33 @@ const { mix } = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix
+	.combine([
+		'node_modules/sb-admin-2/vendor/bootstrap/css/bootstrap.css',
+		'node_modules/sb-admin-2/vendor/metisMenu/metisMenu.css',
+		'node_modules/sb-admin-2/dist/css/sb-admin-2.css',
+		'node_modules/sb-admin-2/vendor/font-awesome/css/font-awesome.css',
+		'resources/assets/css/base.css'
+		],'public/css/base.css')
+	.combine([
+		'node_modules/sb-admin-2/vendor/bootstrap/css/bootstrap.css',
+		'node_modules/sb-admin-2/vendor/metisMenu/metisMenu.css',
+		'node_modules/sb-admin-2/dist/css/sb-admin-2.css',
+		'node_modules/sb-admin-2/vendor/font-awesome/css/font-awesome.css',
+		'resources/assets/css/admin.css'
+		],'public/css/admin.css')
+	.js([
+		'node_modules/sb-admin-2/vendor/jquery/jquery.js',
+		'node_modules/sb-admin-2/vendor/bootstrap/js/bootstrap.js',
+		'node_modules/sb-admin-2/vendor/metisMenu/metisMenu.js',
+		'node_modules/sb-admin-2/dist/js/sb-admin-2.js',
+		'resources/assets/js/base.js'
+		],'public/js/base.js')
+	.js([
+		'node_modules/sb-admin-2/vendor/jquery/jquery.js',
+		'node_modules/sb-admin-2/vendor/metisMenu/metisMenu.js',
+		'node_modules/sb-admin-2/dist/js/sb-admin-2.js',
+		'node_modules/sb-admin-2/vendor/bootstrap/js/bootstrap.js',
+		'resources/assets/js/admin.js'
+		],'public/js/admin.js')
+	.version();

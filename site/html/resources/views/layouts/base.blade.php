@@ -5,7 +5,7 @@
 
 <body>
 	@yield('menu')
-    <div id="wrapper">
+    <div id="container">
     @yield('content')
     </div>
 

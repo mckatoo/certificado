@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/navbar-brand.png') }}" alt="IESI - Comissão Própria de Avaliação" /></a>
+        <a class="navbar-brand" href="{{ url('/') }}"></a>
     </div>
     <!-- /.navbar-header -->
     <ul class="nav navbar-top-links navbar-right">
@@ -16,9 +16,8 @@
                 <i class="fa fa-database fa-fw"></i> Cadastros <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-alerts">
-            @if (Auth::user()->tipo->tipo !== 'Professor')
                 <li>
-                    <a href="{{ route('registro') }}">
+                    <a href="{{ route('register') }}">
                         <i class="fa fa-user fa-fw"></i>
                         <div class="inline">
                             Usuários
@@ -26,30 +25,11 @@
                     </a>
                 </li>
                 <li class="divider"></li>
-            @endif
                 <li>
-                    <a href="{{ route('cursos.index') }}">
-                        <i class="fa fa-twitter fa-fw"></i>
-                        <div class="inline">
-                            Cursos
-                        </div>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="{{ route('publicacoes.tipo') }}">
+                    <a href="#">
                         <i class="glyphicon glyphicon-education"></i>
                         <div class="inline">
                             Tipo de Publicações
-                        </div>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="{{ route('producoes.tipo') }}">
-                        <i class="fa fa-twitter fa-fw"></i>
-                        <div class="inline">
-                            Tipo de Produções
                         </div>
                     </a>
                 </li>
@@ -63,7 +43,7 @@
             </a>
             <ul class="dropdown-menu dropdown-user">
                 <li>
-                    <a href="{{ route('perfil',Auth::user()->id) }}">
+                    <a href="#">
                     <div class="inline">
                         Perfil
                     </div>
@@ -102,7 +82,7 @@
                     <a href="{{ url('/') }}"><i class="fa fa-dashboard fa-fw"></i> Principal</a>
                 </li>
                 <li>
-                    <a href="{{ route('relatorios.index') }}"><i class="fa fa-file-text fa-fw"></i> Relatórios</a>
+                    <a href="#"><i class="fa fa-certificate fa-fw"></i> Relatórios</a>
                 </li>
 
                 <li>
