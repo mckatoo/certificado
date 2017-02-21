@@ -18,3 +18,13 @@
 [06-Feb-2017 20:25:58] NOTICE: fpm is running, pid 265
 [06-Feb-2017 20:25:58] NOTICE: ready to handle connections
 [06-Feb-2017 20:25:58] NOTICE: systemd monitor interval set to 10000ms
+[09-Feb-2017 22:23:07] NOTICE: configuration file /etc/php/7.0/fpm/php-fpm.conf test is successful
+
+[09-Feb-2017 22:23:07] NOTICE: fpm is running, pid 74
+[09-Feb-2017 22:23:07] NOTICE: ready to handle connections
+[09-Feb-2017 22:23:07] NOTICE: systemd monitor interval set to 10000ms
+[20-Feb-2017 22:56:05] NOTICE: configuration file /etc/php/7.0/fpm/php-fpm.conf test is successful
+
+[20-Feb-2017 22:56:05] NOTICE: fpm is running, pid 73
+[20-Feb-2017 22:56:05] NOTICE: ready to handle connections
+[20-Feb-2017 22:56:05] NOTICE: systemd monitor interval set to 10000ms

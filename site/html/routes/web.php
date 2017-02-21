@@ -13,3 +13,8 @@
 
 Auth::routes();
 Route::get('/', ['as' => 'index', 'uses' => 'HomeController@index']);
+
+Route::group(['prefix' => 'certificados','as' => 'certificados.'], function() {
+    Route::get('', 				['as' => 'index', 'uses' => 'CertificadosController@index']);
+    Route::get('print', 		['as' => 'print', 'uses' => 'CertificadosController@print']);
+});

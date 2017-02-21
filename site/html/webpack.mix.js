@@ -35,6 +35,8 @@ mix
 		'resources/assets/js/base.js'
 		],'public/js/base.js')
 	.js([
+		'node_modules/angular/angular.js',
+		'resources/assets/js/app-angular.js',
 		'node_modules/sb-admin-2/vendor/jquery/jquery.js',
 		'node_modules/sb-admin-2/vendor/metisMenu/metisMenu.js',
 		'node_modules/sb-admin-2/dist/js/sb-admin-2.js',

@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{ url('/') }}"></a>
+        <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/navbar-brand.png') }}" alt=""></a>
     </div>
     <!-- /.navbar-header -->
     <ul class="nav navbar-top-links navbar-right">
@@ -82,7 +82,7 @@
                     <a href="{{ url('/') }}"><i class="fa fa-dashboard fa-fw"></i> Principal</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-certificate fa-fw"></i> Relatórios</a>
+                    <a href="{{ route('certificados.index') }}"><i class="fa fa-certificate fa-fw"></i> Certificados</a>
                 </li>
 
                 <li>
