@@ -25,4 +25,10 @@ class HomeController extends Controller
     {
         return view('dashboard');
     }
+
+    public function cadastros()
+    {
+        $professores=\App\Professor::pluck('professor','id');
+        return view('cadastros.index',compact('professores'));
+    }
 }

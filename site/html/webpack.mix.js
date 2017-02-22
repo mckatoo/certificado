@@ -33,7 +33,7 @@ mix
 		'node_modules/sb-admin-2/vendor/metisMenu/metisMenu.js',
 		'node_modules/sb-admin-2/dist/js/sb-admin-2.js',
 		'resources/assets/js/base.js'
-		],'public/js/base.js')
+		],'public/js/base.js').version()
 	.js([
 		'node_modules/angular/angular.js',
 		'resources/assets/js/app-angular.js',
@@ -42,5 +42,4 @@ mix
 		'node_modules/sb-admin-2/dist/js/sb-admin-2.js',
 		'node_modules/sb-admin-2/vendor/bootstrap/js/bootstrap.js',
 		'resources/assets/js/admin.js'
-		],'public/js/admin.js')
-	.version();
+		],'public/js/admin.js').version();

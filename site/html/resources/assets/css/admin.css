@@ -253,3 +253,9 @@ h5{
         page-break-after: always;
     }
 }
+
+@media (min-width: 768px) {
+    #page-wrapper {
+        padding: 10px;
+    }
+}

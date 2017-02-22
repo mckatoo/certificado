@@ -16,14 +16,15 @@
             @if (session('erro')!==null)
                 <div class="alert alert-danger">{{ session('erro') }}</div>
             @endif
-            <div class="col-lg-8">
-            
+            <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">Certificados em Lotes</div>
 
-
-
-
-            
+                <div class="panel-body">
+                    Certificados
+                </div>
             </div>
+        </div>
             <!-- /.col-lg-4 -->
         </div>
         <!-- /.row -->
