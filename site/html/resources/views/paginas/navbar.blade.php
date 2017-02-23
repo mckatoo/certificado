@@ -25,11 +25,13 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="{{ route('logout') }}"><i class="fa fa-sign-out fa-fw"></i>
+                    <a href="#" id="logout"><i class="fa fa-sign-out fa-fw"></i>
                     <div class="inline">
                         Sair
                     </div>
                     </a>
+                    {!! Form::open(['route' => 'logout', 'method' => 'POST', 'id' => 'form-logout']) !!}
+                    {!! Form::close() !!}
                 </li>
             </ul>
             <!-- /.dropdown-user -->

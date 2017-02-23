@@ -3,7 +3,7 @@
 
 @include('paginas.head')
 
-<body>
+<body ng-app="main">
 
     <div id="wrapper">
         @include('paginas.navbar')

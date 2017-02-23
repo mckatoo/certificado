@@ -33,6 +33,16 @@
                                             <h4 class="modal-title">Instituto</h4>
                                         </div>
                                         <div class="modal-body">
+                                            @if (count($errors) > 0)
+                                                <div class="alert alert-danger">
+                                                    <ul>
+                                                        @foreach ($errors->all() as $error)
+                                                            <li>{{ $error }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
+                                            <br>
                                             {!! Form::open(['route' => 'instituto.salvar']) !!}
                                             <div class="form-group">
                                             {!! Form::label('diretor', 'Diretor', ['class' => 'control-label']) !!}
@@ -48,10 +58,10 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <input type="reset" class="btn btn-default" data-dismiss="modal" value="Cancelar"></input>
-                                            <button type="button" class="btn btn-primary">Salvar</button>
+                                            {!! Form::reset('Cancelar', ['class' => 'btn btn-default', 'data-dismiss' => 'modal']) !!}
+                                            {!! Form::submit('Salvar', ['class' => 'btn btn-primary']) !!}
                                         </div>
-                                                {!! Form::close() !!}
+                                            {!! Form::close() !!}
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +89,16 @@
                                             <h4 class="modal-title">Professor</h4>
                                         </div>
                                         <div class="modal-body form-inline">
-                                        <br>
+                                            @if (count($errors) > 0)
+                                                <div class="alert alert-danger">
+                                                    <ul>
+                                                        @foreach ($errors->all() as $error)
+                                                            <li>{{ $error }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
+                                            <br>
                                             {!! Form::open(['route' => 'professor.salvar']) !!}
                                             <div class="form-group">
                                             {!! Form::label('tratamento', 'Tratamento', ['class' => 'control-label']) !!}
@@ -91,10 +110,10 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <input type="reset" class="btn btn-default" data-dismiss="modal" value="Cancelar"></input>
-                                            <button type="button" class="btn btn-primary">Salvar</button>
+                                            {!! Form::reset('Cancelar', ['class' => 'btn btn-default', 'data-dismiss' => 'modal']) !!}
+                                            {!! Form::submit('Salvar', ['class' => 'btn btn-primary']) !!}
                                         </div>
-                                                {!! Form::close() !!}
+                                            {!! Form::close() !!}
                                     </div>
                                 </div>
                             </div>
@@ -122,12 +141,35 @@
                                             <h4 class="modal-title">Curso</h4>
                                         </div>
                                         <div class="modal-body">
-                                            
+                                            @if (count($errors) > 0)
+                                                <div class="alert alert-danger">
+                                                    <ul>
+                                                        @foreach ($errors->all() as $error)
+                                                            <li>{{ $error }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
+                                            <br>
+                                            {!! Form::open(['route' => 'curso.salvar']) !!}
+                                            <div class="form-group">
+                                            {!! Form::label('diretor', 'Diretor', ['class' => 'control-label']) !!}
+                                            {!! Form::select('diretor', $professores, null, ['placeholder' => 'Selecione ...', 'class' => 'form-control']) !!}
+                                            </div>
+                                            <div class="form-group">
+                                            {!! Form::label('logotipo', 'Logotipo', ['class' => 'control-label']) !!}
+                                            {!! Form::textarea('logotipo', null, ['placeholder' => 'Cole aqui um imagem em base64','class' => 'form-control']) !!}
+                                            </div>
+                                            <div class="form-group">
+                                            {!! Form::label('nome', 'Nome', ['class' => 'control-label']) !!}
+                                            {!! Form::text('nome', null, ['placeholder' => 'Nome simplificado', 'class' => 'form-control']) !!}
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <input type="reset" class="btn btn-default" data-dismiss="modal" value="Cancelar"></input>
-                                            <button type="button" class="btn btn-primary">Salvar</button>
+                                            {!! Form::reset('Cancelar', ['class' => 'btn btn-default', 'data-dismiss' => 'modal']) !!}
+                                            {!! Form::submit('Salvar', ['class' => 'btn btn-primary']) !!}
                                         </div>
+                                            {!! Form::close() !!}
                                     </div>
                                 </div>
                             </div>
