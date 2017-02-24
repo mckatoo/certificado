@@ -259,3 +259,13 @@ h5{
         padding: 10px;
     }
 }
+
+.upload-area-hover {
+    border-color: #000;
+    color: #000;
+}
+
+#uploaded-file {
+    background-color: #fff;
+    border: 1px solid #777;
+}

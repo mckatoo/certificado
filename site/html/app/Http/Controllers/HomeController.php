@@ -28,7 +28,8 @@ class HomeController extends Controller
 
     public function cadastros()
     {
+        $institutos = \App\Instituto::with('diretor')->get();
         $professores=\App\Professor::pluck('professor','id');
-        return view('cadastros.index',compact('professores'));
+        return view('cadastros.index',compact('professores','institutos'));
     }
 }
