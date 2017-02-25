@@ -28,8 +28,9 @@ class HomeController extends Controller
 
     public function cadastros()
     {
-        $institutos = \App\Instituto::with('diretor')->get();
-        $professores=\App\Professor::pluck('professor','id');
-        return view('cadastros.index',compact('professores','institutos'));
+        $institutos = \App\Instituto::with('diretor')->orderBy('created_at','desc')->get();
+        $professores = \App\Professor::orderBy('created_at','desc')->get();
+        $cursos = \App\Curso::orderBy('curso','asc')->get();
+        return view('cadastros.index',compact('professores','institutos','cursos'));
     }
 }

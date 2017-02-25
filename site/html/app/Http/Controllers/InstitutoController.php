@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use File;
 
 class InstitutoController extends Controller
 {
@@ -20,18 +21,30 @@ class InstitutoController extends Controller
 
     public function salvar(Request $request)
     {
-    	$this->validate($request, [
-    		'diretor' => 'bail|required',
-    		'logotipo' => 'bail|required',
-    		'nome' => 'bail|required|max:45',
-    	]);
+        if (is_null($request->id)) {
+            $this->validate($request, [
+                'diretor' => 'bail|required',
+                'logotipo' => 'bail|required',
+                'nome' => 'bail|required|unique:instituto|max:45',
+            ]);
+            $i = new \App\Instituto;
+            $acao = 'cadastrado';
+        } else {
+            $this->validate($request, [
+                'diretor' => 'bail|required',
+                'logotipo' => 'bail',
+                'nome' => 'bail|required|max:45',
+            ]);
+            $i = \App\Instituto::find($request->id);
+            $acao = 'editado';
+        }
+        
 
-        $i = new \App\Instituto;
         $i->diretor = $request->diretor;
 
-        if ($request->logotipo->isValid()) {
+        if (($request->logotipo !== null) and ($request->logotipo->isValid())) {
             $logotipo = $request->logotipo;
-            $localArmazem = storage_path().'/logotipo/'.$i->id.'/';
+            $localArmazem = storage_path().'/logotipo/'.$request->nome.'/';
             $logotipo_sanitizado = filter_var($logotipo->getClientOriginalName(), FILTER_SANITIZE_URL);
             if (file_exists($localArmazem.$logotipo_sanitizado)) {
                 unlink($localArmazem.$logotipo_sanitizado);
@@ -43,20 +56,26 @@ class InstitutoController extends Controller
         $i->nome = $request->nome;
         $i->save();
 
-        return back()->with('success', 'Instituto '.$i->nome.' cadastrado com sucesso!');
+        return back()->with('success', 'Instituto '.$i->nome.' '.$acao.' com sucesso!');
     }
 
 
     public function apagar(Request $request)
     {
-    	# code...
+        if (\App\Instituto::find($request->id)) {
+            $i = \App\Instituto::find($request->id);
+            $i->delete();
+            return back()->with('success', 'Instituto '.$i->nome.' deletado com sucesso!');
+        } else {
+            return back()->withErrors('Instituto não encontrado!');
+        }
     }
 
 
     public function showLogo($institutoId)
     {
         $i = \App\Instituto::where('id',$institutoId)->first();
-        $arquivo = storage_path().'/logotipo/'.$institutoId.'/'.$i->logotipo;
+        $arquivo = storage_path().'/logotipo/'.$i->nome.'/'.$i->logotipo;
 
         if(!File::exists($arquivo)) abort(404);
 

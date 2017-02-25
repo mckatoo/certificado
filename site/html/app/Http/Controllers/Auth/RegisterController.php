@@ -68,4 +68,11 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+
+    public function showRegistrationForm()
+    {
+        \App\tipoUser::orderBy('tipo','desc')->get();
+        return view('auth.register', compact('tipo'));
+    }
 }

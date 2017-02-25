@@ -16,6 +16,15 @@
                 <i class="fa fa-users fa-fw"></i> {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
+                @if (Auth::user()->tipoUser_id == '1')
+                <li>
+                    <a href="#">
+                    <div class="inline">
+                        Usuários
+                    </div>
+                    </a>
+                </li>
+                @endif
                 <li>
                     <a href="#">
                     <div class="inline">
