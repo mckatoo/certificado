@@ -20,23 +20,35 @@ class ProfessorController extends Controller
 
     public function salvar(Request $request)
     {
-    	$this->validate($request, [
-    		'tratamento' => 'bail|required|max:20',
-    		'professor' => 'bail|required|max:150',
-    	]);
+        $this->validate($request, [
+            'tratamento' => 'bail|required|max:20',
+            'professor' => 'bail|required|max:150',
+        ]);
+        if (is_null($request->id)) {
+            $p = new \App\Professor;
+            $mensagem = 'Professor '.$request->professor.' cadastrado com sucesso!';
+        } else {
+            $p = \App\Professor::find($request->id);
+            $mensagem = 'Professor '.$p->professor.' editado com sucesso!';
+        }
 
-        $p = new \App\Professor;
         $p->tratamento = $request->tratamento;
         $p->professor = $request->professor;
         $p->save();
 
-        return back()->with('success', 'Professor '.$p->nome.' cadastrado com sucesso!');
+        return back()->with('success', $mensagem);
     }
 
 
     public function apagar(Request $request)
     {
-    	# code...
+    	if (\App\Professor::find($request->id)) {
+            $p = \App\Professor::find($request->id);
+            $p->delete();
+            return back()->with('success', 'Professor '.$p->professor.' deletado com sucesso!');
+        } else {
+            return back()->withErrors('Professor não encontrado!');
+        }
     }
 
     public function procurar($palavra)

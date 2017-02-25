@@ -64,6 +64,12 @@ class InstitutoController extends Controller
     {
         if (\App\Instituto::find($request->id)) {
             $i = \App\Instituto::find($request->id);
+            $logotipo = $i->logotipo;
+            $localArmazem = storage_path().'/logotipo/'.$i->nome.'/';
+            if (file_exists($localArmazem.$logotipo)) {
+                unlink($localArmazem.$logotipo);
+                rmdir($localArmazem);
+            }
             $i->delete();
             return back()->with('success', 'Instituto '.$i->nome.' deletado com sucesso!');
         } else {

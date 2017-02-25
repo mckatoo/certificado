@@ -106,30 +106,31 @@
                                             </div>
                                         </td>
                                         <td class="text-center"><a class="btn btn-xs btn-danger" data-toggle="modal" href='#frmInstitutoApagar{{ $i->id }}'>Apagar</a>
-                                        <div class="modal fade" id="frmInstitutoApagar{{ $i->id }}">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                    </div>
-                                                    <div class="modal-body text-left">
-                                                        <br>
-                                                        {!! Form::open(['name' => $i->id,'route' => 'instituto.apagar', 'method' => 'POST', 'id' => $i->id, 'enctype' => 'multipart/form-data']) !!}
-                                                        {!! Form::hidden('id', $i->id) !!}
-                                                        <div class="alert-danger">
-                                                            <div class="panel-body">
-                                                                <h3>Tem certeza que deseja apagar o Instituto {{ $i->nome }}?</h3>
+                                            <div class="modal fade" id="frmInstitutoApagar{{ $i->id }}">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                        </div>
+                                                        <div class="modal-body text-left">
+                                                            <br>
+                                                            {!! Form::open(['name' => $i->id,'route' => 'instituto.apagar', 'method' => 'POST', 'id' => $i->id, 'enctype' => 'multipart/form-data']) !!}
+                                                            {!! Form::hidden('id', $i->id) !!}
+                                                            <div class="alert-danger">
+                                                                <div class="panel-body">
+                                                                    <h3>Tem certeza que deseja apagar o Instituto {{ $i->nome }}?</h3>
+                                                                </div>
                                                             </div>
+                                                            <div class="modal-footer">
+                                                                {!! Form::reset('Cancelar', ['class' => 'btn btn-default cancelar', 'data-dismiss' => 'modal', 'data-form-id' => '#frminstituto']) !!}
+                                                                {!! Form::submit('Apagar', ['class' => 'btn btn-danger']) !!}
+                                                            </div>
+                                                                {!! Form::close(['name' => $i->id]) !!}
                                                         </div>
-                                                        <div class="modal-footer">
-                                                            {!! Form::reset('Cancelar', ['class' => 'btn btn-default cancelar', 'data-dismiss' => 'modal', 'data-form-id' => '#frminstituto']) !!}
-                                                            {!! Form::submit('Apagar', ['class' => 'btn btn-danger']) !!}
-                                                        </div>
-                                                            {!! Form::close(['name' => $i->id]) !!}
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div></td>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
