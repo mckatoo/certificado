@@ -23,12 +23,12 @@
                             {{ csrf_field() }}
                             <fieldset>
                                 <div class="form-group{{ $errors->has('tipo') ? ' has-error' : '' }}">
-                                        <select class="form-control" name="tipo">
+                                       {{--  <select class="form-control" name="tipo">
                                             <option value="">TIPO DE USUÁRIO...</option>
                                             @foreach ($tipo as $tp)
                                                 <option value="{{$tp->id}}">{{$tp->tipo}}</option>
                                             @endforeach
-                                        </select>
+                                        </select> --}}
                                         @if ($errors->has('tipo'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('tipo') }}</strong>

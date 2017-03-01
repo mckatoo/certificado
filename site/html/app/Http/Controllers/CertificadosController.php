@@ -14,7 +14,10 @@ class CertificadosController extends Controller
 
     public function index()
     {
-    	return view('certificados.index');
+        $institutos = \App\Instituto::with('diretor')->orderBy('created_at','desc')->get();
+        $professores = \App\Professor::orderBy('created_at','desc')->get();
+        $cursos = \App\Curso::orderBy('curso','asc')->get();
+        return view('certificados.index',compact('professores','institutos','cursos'));
     }
 
 

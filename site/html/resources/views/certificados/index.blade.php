@@ -13,23 +13,31 @@
 @section('content')
     <div id="page-wrapper">
         <div class="row">
-            @if (session('erro')!==null)
-                <div class="alert alert-danger">{{ session('erro') }}</div>
-            @endif
-            <div class="col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">Certificados em Lotes</div>
-
-                <div class="panel-body">
-                    Certificados
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    @foreach ($errors->all() as $error)
+                        <strong>Erro</strong> {{ $error }} <br>
+                    @endforeach
                 </div>
-            </div>
+            @endif
+            @if (session('success'))
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>Sucesso</strong> {{ session('success') }}
+                </div>
+            @endif
         </div>
-            <!-- /.col-lg-4 -->
+
+        <div class="col-lg-6 col-sm-12">
+            @include('certificados.lote')
         </div>
-        <!-- /.row -->
+
+        <div class="col-lg-6 col-sm-12">
+            @include('certificados.individual')
+        </div>
+
     </div>
-    <!-- /#page-wrapper -->
 @endsection
 
 @section('scriptjs')

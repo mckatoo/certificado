@@ -17,13 +17,13 @@
             </a>
             <ul class="dropdown-menu dropdown-user">
                 @if (Auth::user()->tipoUser_id == '1')
-                <li>
-                    <a href="#">
-                    <div class="inline">
-                        Usuários
-                    </div>
-                    </a>
-                </li>
+                    <li>
+                        <a href="{{ route('register') }}">
+                        <div class="inline">
+                            Usuários
+                        </div>
+                        </a>
+                    </li>
                 @endif
                 <li>
                     <a href="#">

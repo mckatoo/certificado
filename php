@@ -1,6 +1,6 @@
 #!/bin/bash
 
-container=certificado-dev
+container=certificado
 
 case $1 in
   start) docker exec -ti $container service php7.0-fpm $1 ;;

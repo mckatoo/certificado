@@ -36,7 +36,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
     }
 
     /**
@@ -72,7 +72,7 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        \App\tipoUser::orderBy('tipo','desc')->get();
+        $tipo = \App\tipoUser::orderBy('tipo','desc')->get();
         return view('auth.register', compact('tipo'));
     }
 }

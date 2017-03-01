@@ -19,14 +19,14 @@ mix
 		'node_modules/sb-admin-2/dist/css/sb-admin-2.css',
 		'node_modules/sb-admin-2/vendor/font-awesome/css/font-awesome.css',
 		'resources/assets/css/base.css'
-		],'public/css/base.css')
+		],'public/css/base.css').version()
 	.combine([
 		'node_modules/sb-admin-2/vendor/bootstrap/css/bootstrap.css',
 		'node_modules/sb-admin-2/vendor/metisMenu/metisMenu.css',
 		'node_modules/sb-admin-2/dist/css/sb-admin-2.css',
 		'node_modules/sb-admin-2/vendor/font-awesome/css/font-awesome.css',
 		'resources/assets/css/admin.css'
-		],'public/css/admin.css')
+		],'public/css/admin.css').version()
 	.js([
 		'node_modules/sb-admin-2/vendor/jquery/jquery.js',
 		'node_modules/sb-admin-2/vendor/bootstrap/js/bootstrap.js',
