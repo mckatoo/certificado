@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Instituto extends Model
 {
     protected $table = 'instituto';
+    protected $date = 'created_at, updated_at';
 
     /**
     * Relacionamentos

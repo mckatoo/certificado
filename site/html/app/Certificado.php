@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Certificado extends Model
 {
 	protected $table = 'certificado';
+	protected $date = 'realizado_em, created_at, updated_at';
 
 	/**
 	*	Relacionamentos

@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lote extends Model
 {
-    protectec $table = 'Lote';
+    protected $table = 'Lote';
+    protected $date = 'created_at, updated_at';
 }

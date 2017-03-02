@@ -69,6 +69,6 @@ class CertificadosController extends Controller
 
     public function print()
     {
-    	return 'Print';
+    	return view('certificados.print');
     }
 }

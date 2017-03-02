@@ -9,3 +9,26 @@
 .navbar-top-links li a{
     color: #337ab7;
 }
+
+@media print {
+    body {
+        -webkit-print-color-adjust: exact;
+    }
+
+
+    .nao-imprimir {
+        display: none;
+    }
+
+    .rodape{
+        display: none;
+    }
+
+    .row{
+        page-break-after: auto !important;
+        page-break-inside: avoid;
+    }
+    .certificado{
+        page-break-after: always;
+    }
+}

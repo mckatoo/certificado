@@ -16,7 +16,7 @@
                 <i class="fa fa-users fa-fw"></i> {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
-                @if (Auth::user()->tipoUser_id == '1')
+                @if (Auth::user()->tipo->tipo == 'Administrador')
                     <li>
                         <a href="{{ route('register') }}">
                         <div class="inline">

@@ -68,7 +68,7 @@
                                                 {{ $c->nome }}</td>
                                             </a>
                                         <td>{{ $c->cursos->curso }}</td>
-                                        <td>{{ $c->realizado_em }}</td>
+                                        <td>{{ date('d/m/Y', strtotime($c->realizado_em)) }}</td>
                                         <td class="text-center">
                                             <a class="btn btn-xs btn-primary" data-toggle="modal" href='#modalEditaCertificado{{ $c->id }}'>Editar</a>
                                             <div class="modal fade" id="modalEditaCertificado{{ $c->id }}">

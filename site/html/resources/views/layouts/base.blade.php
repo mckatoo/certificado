@@ -4,7 +4,7 @@
 @include('paginas.head')
 
 <body>
-	@yield('menu')
+	{{-- @yield('menu') --}}
     <div id="container">
     @yield('content')
     </div>
