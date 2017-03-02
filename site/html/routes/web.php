@@ -16,16 +16,18 @@ Route::get('/', 				        ['as' => 'index', 'uses' => 'HomeController@index'])
 
 Route::group(['prefix' => 'certificados','as' => 'certificados.'], function() {
     Route::get('', 				        ['as' => 'index', 'uses' => 'CertificadosController@index']);
-    Route::get('print', 		        ['as' => 'print', 'uses' => 'CertificadosController@print']);
+    Route::post('salvar',		        ['as' => 'salvar', 'uses' => 'CertificadosController@salvar']);
+    Route::post('apagar',               ['as' => 'apagar', 'uses' => 'CertificadosController@apagar']);
+    Route::get('print',                 ['as' => 'print', 'uses' => 'CertificadosController@print']);
 });
 
 Route::group(['prefix' => 'cadastros','as' => 'cadastros.'], function() {
-    Route::get('', 				        ['as' => 'index', 'uses' => 'HomeController@cadastros']);
+    Route::get('',                      ['as' => 'index', 'uses' => 'HomeController@cadastros']);
 });
 
 Route::group(['prefix' => 'instituto','as' => 'instituto.'], function() {
-    Route::get('', 				        ['as' => 'index', 'uses' => 'InstitutoController@index']);
-    Route::post('salvar',		        ['as' => 'salvar', 'uses' => 'InstitutoController@salvar']);
+    Route::get('',                      ['as' => 'index', 'uses' => 'InstitutoController@index']);
+    Route::post('salvar',               ['as' => 'salvar', 'uses' => 'InstitutoController@salvar']);
     Route::post('apagar',               ['as' => 'apagar', 'uses' => 'InstitutoController@apagar']);
     Route::get('showLogo/{institutoId}',['as' => 'showLogo', 'uses' => 'InstitutoController@showLogo']);
 });

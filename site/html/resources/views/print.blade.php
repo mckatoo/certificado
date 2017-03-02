@@ -1,7 +1,7 @@
-@extends('layouts.admin')
+@extends('layouts.base')
 
 @section('linkcss')
-    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/base.css') }}">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -34,5 +34,5 @@
 @endsection
 
 @section('scriptjs')
-    <script src="{{ mix('js/admin.js') }}"></script>
+    <script src="{{ mix('js/base.js') }}"></script>
 @stop

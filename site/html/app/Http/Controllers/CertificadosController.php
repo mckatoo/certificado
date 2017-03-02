@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DateTime;
 
 class CertificadosController extends Controller
 {
@@ -16,8 +17,53 @@ class CertificadosController extends Controller
     {
         $institutos = \App\Instituto::with('diretor')->orderBy('created_at','desc')->get();
         $professores = \App\Professor::orderBy('created_at','desc')->get();
+        $certificados = \App\Certificado::orderBy('created_at','desc')->get();
         $cursos = \App\Curso::orderBy('curso','asc')->get();
-        return view('certificados.index',compact('professores','institutos','cursos'));
+        return view('certificados.index',compact('professores','institutos','cursos','certificados'));
+    }
+
+
+    public function salvar(Request $request)
+    {
+        $this->validate($request, [
+            'nome' => 'bail|required',
+            'titulo' => 'bail|required',
+            'carga_horaria' => 'bail|required',
+            'nota' => 'bail',
+            'realizado_em' => 'bail|required|date_format:d/m/Y',
+            'curso' => 'bail|required',
+            'lote' => 'bail',
+        ]);
+        if (is_null($request->id)) {
+            $c = new \App\Certificado;
+            $mensagem = 'Certificado de '.$request->nome.' realizado em '.$request->realizado_em.' cadastrado com sucesso.';
+        } else {
+            $c = \App\Certificado::find($request->id);
+            $mensagem = 'Certificado de '.$request->nome.' realizado em '.$request->realizado_em.' editado com sucesso.';
+        }
+
+        $c->nome = $request->nome;
+        $c->titulo = $request->titulo;
+        $c->carga_horaria = $request->carga_horaria;
+        $c->nota = $request->nota;
+        $c->realizado_em = DateTime::createFromFormat('d/m/Y', $request->realizado_em);
+        $c->curso_id = $request->curso;
+        $c->lote_id = $request->lote;
+        $c->save();
+
+        return back()->with('success', $mensagem);
+    }
+
+
+    public function apagar(Request $request)
+    {
+        if (\App\Certificado::find($request->id)) {
+            $c = \App\Certificado::find($request->id);
+            $c->delete();
+            return back()->with('success', 'Certificado de '.$c->nome.' realizado em '.$c->realizado_em.' deletado com sucesso!');
+        } else {
+            return back()->withErrors('Certificado não encontrado!');
+        }
     }
 
 

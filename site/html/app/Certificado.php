@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Certificado extends Model
 {
-	protectec $table = 'Certificado';
+	protected $table = 'certificado';
 
 	/**
 	*	Relacionamentos

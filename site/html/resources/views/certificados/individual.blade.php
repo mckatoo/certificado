@@ -1,29 +1,45 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="fa fa-certificate"></i> Certificados em Lote
+                    <i class="fa fa-certificate"></i> Certificado Individual
                     <div class="pull-right">
                         <div class="btn-group">
-                            <a class="btn btn-primary btn-xs" data-toggle="modal" href='#modal-curso'>Novo</a>
-                            <div class="modal fade" id="modal-curso">
+                            <a class="btn btn-primary btn-xs" data-toggle="modal" href='#modal-certificado'>Novo</a>
+                            <div class="modal fade" id="modal-certificado">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title">Certificados em Lote</h4>
+                                            <h4 class="modal-title">Certificado Individual</h4>
                                         </div>
                                         <div class="modal-body">
-                                            {!! Form::open(['route' => 'curso.salvar', 'method' => 'POST', 'id' => 'frmcurso', 'enctype' => 'multipart/form-data']) !!}
-                                            <div class="form-group">
-                                            {!! Form::label('coordenador', 'Coordenador', ['class' => 'control-label']) !!}
-                                            {!! Form::select('coordenador', $professores->pluck('professor','id'), old('coordenador'), ['placeholder' => 'Selecione ...', 'class' => 'form-control', 'required' => 'required']) !!}
+                                            {!! Form::open(['route' => 'certificados.salvar', 'method' => 'POST', 'id' => 'frmcertificado', 'enctype' => 'multipart/form-data']) !!}
+                                            <div class="form-group col-lg-12">
+                                            {!! Form::label('nome', 'Nome', ['class' => 'control-label']) !!}
+                                            {!! Form::text('nome', old('nome'), ['class' => 'form-control', 'required' => 'required']) !!}
+                                            </div>
+                                            <div class="form-group col-lg-12">
+                                            {!! Form::label('titulo', 'Título', ['class' => 'control-label']) !!}
+                                            {!! Form::textarea('titulo', old('titulo'), ['class' => 'form-control', 'required' => 'required', 'rows' => '5']) !!}
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                {!! Form::label('carga_horaria', 'Carga Horária', ['class' => 'control-label']) !!}
+                                                {!! Form::number('carga_horaria', old('carga_horaria'), ['class' => 'form-control', 'required' => 'required']) !!}
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                {!! Form::label('nota', 'Nota', ['class' => 'control-label']) !!}
+                                                {!! Form::number('nota', old('nota'), ['class' => 'form-control']) !!}
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                            {!! Form::label('realizado_em', 'Realizado em', ['class' => 'control-label']) !!}
+                                            {!! Form::text('realizado_em', old('realizado_em', date('d/m/Y')), ['class' => 'form-control', 'required' => 'required', 'id' => 'datepicker']) !!}
                                             </div>
                                             <div class="form-group">
                                             {!! Form::label('curso', 'Curso', ['class' => 'control-label']) !!}
-                                            {!! Form::text('curso', old('curso'), ['class' => 'form-control', 'required' => 'required']) !!}
+                                            {!! Form::select('curso', $cursos->pluck('curso','id'), old('curso'), ['placeholder' => 'Selecione ...', 'class' => 'form-control', 'required' => 'required']) !!}
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            {!! Form::reset('Cancelar', ['class' => 'btn btn-default', 'data-dismiss' => 'modal', 'data-form-id' => '#frmcurso']) !!}
+                                            {!! Form::reset('Cancelar', ['class' => 'btn btn-default', 'data-dismiss' => 'modal', 'data-form-id' => '#frmcertificado']) !!}
                                             {!! Form::submit('Salvar', ['class' => 'btn btn-primary cancelar']) !!}
                                         </div>
                                             {!! Form::close() !!}
@@ -38,40 +54,60 @@
                         <table class="table table-hover table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Coordenador</th>
+                                    <th>Nome</th>
                                     <th>Curso</th>
+                                    <th>Realizado em</th>
                                     <td colspan="2" class="text-center"></td>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($cursos as $c)
+                                @foreach ($certificados->where('lote_id','=','') as $c)
                                     <tr>
-                                        <td>{{ $c->curso }}</td>
-                                        <td>{{ $c->coordenador()->first()->tratamento }} {{ $c->coordenador()->first()->professor }}</td>
+                                        <td>
+                                            <a href="{{ route('certificados.print') }}" target="_blank">
+                                                {{ $c->nome }}</td>
+                                            </a>
+                                        <td>{{ $c->cursos->curso }}</td>
+                                        <td>{{ $c->realizado_em }}</td>
                                         <td class="text-center">
-                                            <a class="btn btn-xs btn-primary" data-toggle="modal" href='#modalEditaCurso{{ $c->id }}'>Editar</a>
-                                            <div class="modal fade" id="modalEditaCurso{{ $c->id }}">
+                                            <a class="btn btn-xs btn-primary" data-toggle="modal" href='#modalEditaCertificado{{ $c->id }}'>Editar</a>
+                                            <div class="modal fade" id="modalEditaCertificado{{ $c->id }}">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                            <h4 class="modal-title">Editar Curso {{ $c->curso }}</h4>
+                                                            <h4 class="modal-title">Editar Certificado {{ $c->curso }}</h4>
                                                         </div>
                                                         <div class="modal-body">
-                                                            {!! Form::open(['route' => 'curso.salvar', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-                                                            {!! Form::hidden('id', $c->id) !!}
-                                                            <div class="form-group">
-                                                            {!! Form::label('coordenador', 'Coordenador', ['class' => 'control-label']) !!}
-                                                            {!! Form::select('coordenador', $professores->pluck('professor','id'), $c->coordenador, ['placeholder' => 'Selecione ...', 'class' => 'form-control', 'required' => 'required']) !!}
+                                                            {!! Form::open(['route' => 'certificados.salvar', 'method' => 'POST', 'id' => 'frmcertificado', 'enctype' => 'multipart/form-data']) !!}
+                                                            <div class="form-group col-lg-12">
+                                                            {!! Form::label('nome', 'Nome', ['class' => 'control-label']) !!}
+                                                            {!! Form::text('Nome', old('nome',$c->nome), ['class' => 'form-control', 'required' => 'required']) !!}
+                                                            </div>
+                                                            <div class="form-group col-lg-12">
+                                                            {!! Form::label('titulo', 'Título', ['class' => 'control-label']) !!}
+                                                            {!! Form::textarea('Título', old('titulo',$c->titulo), ['class' => 'form-control', 'required' => 'required', 'rows' => '5']) !!}
+                                                            </div>
+                                                            <div class="form-group col-lg-4">
+                                                                {!! Form::label('carga_horaria', 'Carga Horária', ['class' => 'control-label']) !!}
+                                                                {!! Form::number('carga_horaria', old('carga_horaria',$c->carga_horaria), ['class' => 'form-control', 'required' => 'required']) !!}
+                                                            </div>
+                                                            <div class="form-group col-lg-4">
+                                                                {!! Form::label('nota', 'Nota', ['class' => 'control-label']) !!}
+                                                                {!! Form::number('nota', old('nota',$c->nota), ['class' => 'form-control', 'required' => 'required']) !!}
+                                                            </div>
+                                                            <div class="form-group col-lg-4">
+                                                            {!! Form::label('realizado_em', 'Realizado em', ['class' => 'control-label']) !!}
+                                                            {!! Form::text('realizado_em', old('realizado_em', $c->realizado_em), ['class' => 'form-control', 'required' => 'required', 'id' => 'datepicker']) !!}
                                                             </div>
                                                             <div class="form-group">
                                                             {!! Form::label('curso', 'Curso', ['class' => 'control-label']) !!}
-                                                            {!! Form::text('curso', $c->curso, ['class' => 'form-control', 'required' => 'required']) !!}
+                                                            {!! Form::select('curso', $cursos->pluck('curso','id'), old('curso',$c->curso_id), ['placeholder' => 'Selecione ...', 'class' => 'form-control', 'required' => 'required']) !!}
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            {!! Form::reset('Cancelar', ['class' => 'btn btn-default cancelar', 'data-dismiss' => 'modal']) !!}
-                                                            {!! Form::submit('Salvar', ['class' => 'btn btn-primary']) !!}
+                                                            {!! Form::reset('Cancelar', ['class' => 'btn btn-default', 'data-dismiss' => 'modal', 'data-form-id' => '#frmcertificado']) !!}
+                                                            {!! Form::submit('Salvar', ['class' => 'btn btn-primary cancelar']) !!}
                                                         </div>
                                                             {!! Form::close() !!}
                                                     </div>
@@ -79,8 +115,8 @@
                                             </div>
                                         </td>
                                         <td class="text-center">
-                                            <a class="btn btn-xs btn-danger" data-toggle="modal" href='#modalApagarCurso{{ $c->id }}'>Apagar</a>
-                                            <div class="modal fade" id="modalApagarCurso{{ $c->id }}">
+                                            <a class="btn btn-xs btn-danger" data-toggle="modal" href='#modalApagarCertificado{{ $c->id }}'>Apagar</a>
+                                            <div class="modal fade" id="modalApagarCertificado{{ $c->id }}">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -88,11 +124,11 @@
                                                         </div>
                                                         <div class="modal-body text-left">
                                                             <br>
-                                                            {!! Form::open(['route' => 'curso.apagar', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                                                            {!! Form::open(['route' => 'certificados.apagar', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                                                             {!! Form::hidden('id', $c->id) !!}
                                                             <div class="alert-danger">
                                                                 <div class="panel-body">
-                                                                    <h3>Tem certeza que deseja apagar o Curso {{ $c->curso }}?</h3>
+                                                                    <h3>Tem certeza que deseja apagar o Certificado de {{ $c->nome }} referente ao curso de {{ $c->cursos->curso }} realizado em {{ $c->realizado_em }}?</h3>
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">

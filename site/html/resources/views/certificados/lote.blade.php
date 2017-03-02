@@ -1,6 +1,6 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="fa fa-certificate"></i> Certificados Individuais
+                    <i class="fa fa-certificate"></i> Certificados em Lote
                     <div class="pull-right">
                         <div class="btn-group">
                             <a class="btn btn-primary btn-xs" data-toggle="modal" href='#modal-curso'>Novo</a>
@@ -9,7 +9,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title">Certificados Individuais</h4>
+                                            <h4 class="modal-title">Certificados em Lote</h4>
                                         </div>
                                         <div class="modal-body">
                                             {!! Form::open(['route' => 'curso.salvar', 'method' => 'POST', 'id' => 'frmcurso', 'enctype' => 'multipart/form-data']) !!}

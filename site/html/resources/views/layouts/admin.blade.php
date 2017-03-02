@@ -11,7 +11,6 @@
     </div>
 
 @yield('scriptjs')
-
 </body>
 
 </html>

@@ -7,7 +7,14 @@ $('#logout').on('click',function () {
 	$('#form-logout').submit();
 })
 
-setInterval(function(){
-      $('.alert').fadeOut();
-    }, 3000);
+// setInterval(function(){
+//       $('.alert').fadeOut();
+//     }, 3000);
 
+$( function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: "dd/mm/yy",
+    });
+  } );
