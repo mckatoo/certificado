@@ -18,6 +18,11 @@ class Certificado extends Model
 		return $this->belongsTo('App\Curso','curso_id');
 	}
 
+	public function instituto()
+	{
+		return $this->belongsTo('App\Instituto','instituto_id');
+	}
+
 	public function lote()
 	{
 		return $this->belongsTo('App\Lote','lote_id');

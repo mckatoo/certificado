@@ -18,7 +18,7 @@ Route::group(['prefix' => 'certificados','as' => 'certificados.'], function() {
     Route::get('', 				        ['as' => 'index', 'uses' => 'CertificadosController@index']);
     Route::post('salvar',		        ['as' => 'salvar', 'uses' => 'CertificadosController@salvar']);
     Route::post('apagar',               ['as' => 'apagar', 'uses' => 'CertificadosController@apagar']);
-    Route::get('print',                 ['as' => 'print', 'uses' => 'CertificadosController@print']);
+    Route::get('print/{id}',            ['as' => 'print', 'uses' => 'CertificadosController@print']);
 });
 
 Route::group(['prefix' => 'cadastros','as' => 'cadastros.'], function() {

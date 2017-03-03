@@ -26,6 +26,7 @@ class CertificadosController extends Controller
     public function salvar(Request $request)
     {
         $this->validate($request, [
+            'instituto' => 'bail|required',
             'nome' => 'bail|required',
             'titulo' => 'bail|required',
             'carga_horaria' => 'bail|required',
@@ -42,6 +43,7 @@ class CertificadosController extends Controller
             $mensagem = 'Certificado de '.$request->nome.' realizado em '.$request->realizado_em.' editado com sucesso.';
         }
 
+        $c->instituto_id = $request->instituto;
         $c->nome = $request->nome;
         $c->titulo = $request->titulo;
         $c->carga_horaria = $request->carga_horaria;
@@ -67,8 +69,9 @@ class CertificadosController extends Controller
     }
 
 
-    public function print()
+    public function print($id)
     {
-    	return view('certificados.print');
+        $certificado = \App\Certificado::find($id)->first();
+    	return view('certificados.print', compact('certificado'));
     }
 }

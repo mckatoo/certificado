@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,400i,700,700i');
+
 .navbar-brand{
     background-image: url('/img/navbar-brand.png');
     background-repeat: no-repeat;
@@ -10,11 +12,95 @@
     color: #337ab7;
 }
 
+.certificado{
+    /*page-break-after: always;*/
+    font-family: 'Gentium Book Basic', serif;
+    z-index: -1;
+    width: 297mm;
+    height: 210mm;
+    border: solid 1px black;
+    zoom: 75%;
+    position: relative;
+    display: inline-table;
+}
+
+.fundo {
+    position: absolute;
+    left: 0mm;
+    bottom: 0mm;
+}
+
+.logotipo {
+    position: absolute;
+    left: 10.406mm;
+    bottom: 173.447mm;
+}
+
+.titulo {
+    font-size: 80pt;
+    font-style: italic;
+    position: absolute;
+    left: 45%;
+    top: 3%;
+}
+
+.descricao{
+    text-align: center;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    resize: none;
+}
+
+.texto-central {
+    text-align: center;
+    top: 30%;
+    width: 100%;
+    font-size: 18pt;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.destaque {
+    font-style: italic;
+    font-weight: bold;
+}
+
 @media print {
     body {
         -webkit-print-color-adjust: exact;
+        -moz-print-color-adjust: exact;
+        -o-print-color-adjust: exact;
+        print-color-adjust: exact;
     }
 
+    .certificado{
+        -webkit-print-color-adjust: exact;
+        -moz-print-color-adjust: exact;
+        -o-print-color-adjust: exact;
+        print-color-adjust: exact;
+        /*page-break-after: always;*/
+        width: 297mm;
+        height: 210mm;
+        border: solid 1px black;
+        zoom: 75%;
+        position: relative;
+    }
+
+    .logotipo {
+        position: absolute;
+        left: 10.406mm;
+        bottom: 173.447mm;
+    }
+
+    .titulo {
+        font-family: 'Gentium Book Basic', serif;
+        font-size: 80pt;
+        font-style: italic;
+        position: absolute;
+        left: 45%;
+        top: 5%;
+    }
 
     .nao-imprimir {
         display: none;
@@ -25,10 +111,12 @@
     }
 
     .row{
-        page-break-after: auto !important;
-        page-break-inside: avoid;
+        /*page-break-after: auto !important;
+        page-break-inside: avoid;*/
     }
     .certificado{
-        page-break-after: always;
+        /*page-break-after: always;*/
+        width: 297mm;
+        height: 210mm;
     }
 }
