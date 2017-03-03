@@ -10,6 +10,7 @@ class CertificadosController extends Controller
 	public function __construct()
     {
         $this->middleware('auth');
+        setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
     }
 
 
@@ -71,7 +72,9 @@ class CertificadosController extends Controller
 
     public function print($id)
     {
-        $certificado = \App\Certificado::find($id)->first();
-    	return view('certificados.print', compact('certificado'));
+        $certificado = \App\Certificado::find($id);
+        $instituto = \App\Instituto::with('diretor')->find($certificado->instituto_id);
+        $curso = \App\Curso::with('coordenador')->find($certificado->curso_id);
+    	return view('certificados.print', compact('certificado','curso','instituto'));
     }
 }

@@ -10782,13 +10782,14 @@ a.ui-button:active,
 }
 
 .certificado{
-    /*page-break-after: always;*/
+    page-break-after: always;
     font-family: 'Gentium Book Basic', serif;
     z-index: -1;
     width: 297mm;
     height: 210mm;
     border: solid 1px black;
-    zoom: 75%;
+    transform: scale(0.75);
+    transform-origin: 0% 0;
     position: relative;
     display: inline-table;
 }
@@ -10835,12 +10836,38 @@ a.ui-button:active,
     font-weight: bold;
 }
 
+.ass-diretor {
+    position: absolute;
+    margin: 0;
+    top: 85%;
+    left: 20%;
+    width: 25%;
+}
+
+.ass-coordenador {
+    position: absolute;
+    margin: 0;
+    top: 85%;
+    left: 55%;
+    width: 25%;
+}
+
+.assinatura {
+    border-bottom: solid 2px black;
+}
+
+.nome-cargo {
+    text-align: center;
+    font-size: 12pt;
+}
+
 @media print {
     body {
         -webkit-print-color-adjust: exact;
         -moz-print-color-adjust: exact;
         -o-print-color-adjust: exact;
         print-color-adjust: exact;
+        margin: 0;
     }
 
     .certificado{
@@ -10848,12 +10875,17 @@ a.ui-button:active,
         -moz-print-color-adjust: exact;
         -o-print-color-adjust: exact;
         print-color-adjust: exact;
-        /*page-break-after: always;*/
+        /* page-break-after: always; */
+        font-family: 'Gentium Book Basic', serif;
+        z-index: -1;
         width: 297mm;
         height: 210mm;
         border: solid 1px black;
-        zoom: 75%;
+        transform: scale(1);
+        transform-origin: 0% 0;
         position: relative;
+        display: inline-table;
+
     }
 
     .logotipo {
@@ -10878,14 +10910,9 @@ a.ui-button:active,
     .rodape{
         display: none;
     }
-
+/* 
     .row{
-        /*page-break-after: auto !important;
-        page-break-inside: avoid;*/
-    }
-    .certificado{
-        /*page-break-after: always;*/
-        width: 297mm;
-        height: 210mm;
-    }
+        page-break-after: auto !important;
+        page-break-inside: avoid;
+    } */
 }

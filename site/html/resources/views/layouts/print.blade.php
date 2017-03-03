@@ -4,17 +4,9 @@
 @include('paginas.head')
 
 <body>
-	@if (Auth::user()->tipo->tipo == "Administrador")
-	    <div>
-	        @include('paginas.navbar')
-	        @yield('content')
-	    </div>
-	@else
-		@yield('menu')
-	    <div>
-	        @yield('content')
-	    </div>
-	@endif
+<div class="certificado">
+    @yield('content')
+</div>
 
 @yield('scriptjs')
 
