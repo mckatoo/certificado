@@ -69,3 +69,6 @@
 [03-Mar-2017 04:09:35] NOTICE: fpm is running, pid 74
 [03-Mar-2017 04:09:35] NOTICE: ready to handle connections
 [03-Mar-2017 04:09:35] NOTICE: systemd monitor interval set to 10000ms
+[03-Mar-2017 17:24:52] NOTICE: fpm is running, pid 1935
+[03-Mar-2017 17:24:52] NOTICE: ready to handle connections
+[03-Mar-2017 17:24:52] NOTICE: systemd monitor interval set to 10000ms

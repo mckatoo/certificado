@@ -14,6 +14,12 @@
 Auth::routes();
 Route::get('/', 				        ['as' => 'index', 'uses' => 'HomeController@index']);
 
+Route::group(['prefix' => 'usuarios','as' => 'usuarios.'], function() {
+    Route::post('apagar',               ['as' => 'apagar', 'uses' => 'Auth\RegisterController@apagar']);
+    Route::get('update',                ['as' => 'update', 'uses' => 'Auth\RegisterController@update']);
+    Route::post('update',               ['as' => 'update', 'uses' => 'Auth\RegisterController@postUpdate']);
+});
+
 Route::group(['prefix' => 'certificados','as' => 'certificados.'], function() {
     Route::get('', 				        ['as' => 'index', 'uses' => 'CertificadosController@index']);
     Route::post('salvar',		        ['as' => 'salvar', 'uses' => 'CertificadosController@salvar']);

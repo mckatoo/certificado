@@ -26,7 +26,7 @@
                     </li>
                 @endif
                 <li>
-                    <a href="#">
+                    <a href="{{ route('usuarios.update') }}">
                     <div class="inline">
                         Perfil
                     </div>
