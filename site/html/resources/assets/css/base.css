@@ -93,6 +93,11 @@
 }
 
 @media print {
+    @page {
+        size: landscape;
+        margin: 0cm;
+        bleed: auto;
+    }
     body {
         -webkit-print-color-adjust: exact;
         -moz-print-color-adjust: exact;
@@ -106,17 +111,14 @@
         -moz-print-color-adjust: exact;
         -o-print-color-adjust: exact;
         print-color-adjust: exact;
-        /* page-break-after: always; */
         font-family: 'Gentium Book Basic', serif;
         z-index: -1;
         width: 297mm;
-        height: 210mm;
-        border: solid 1px black;
+        height: 209.9mm;
         transform: scale(1);
         transform-origin: 0% 0;
         position: relative;
         display: inline-table;
-
     }
 
     .logotipo {
