@@ -3,6 +3,8 @@ site/html/node_modules/
 site/html/.env
 site/html/storage
 site/html/bootstrap/cache
+site/html/public/css/
+site/html/public/js/
 
 # Laravel 4 specific
 bootstrap/compiled.php

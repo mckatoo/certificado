@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DateTime;
+use PDF;
 
 class CertificadosController extends Controller
 {
@@ -75,6 +76,17 @@ class CertificadosController extends Controller
         $certificado = \App\Certificado::find($id);
         $instituto = \App\Instituto::with('diretor')->find($certificado->instituto_id);
         $curso = \App\Curso::with('coordenador')->find($certificado->curso_id);
-    	return view('certificados.print', compact('certificado','curso','instituto'));
+        // return view('certificados.print', compact('certificado','curso','instituto'));
+        return PDF::loadView('certificados.print', [$certificado,$curso,$instituto])->stream();
+    }
+
+
+    public function download($id)
+    {
+        $certificado = \App\Certificado::find($id);
+        $instituto = \App\Instituto::with('diretor')->find($certificado->instituto_id);
+        $curso = \App\Curso::with('coordenador')->find($certificado->curso_id);
+    	// return view('certificados.print', compact('certificado','curso','instituto'));
+        return PDF::loadView('certificados.print', compact('certificado','curso','instituto'))->download($certificado->nome);
     }
 }
