@@ -76,8 +76,11 @@ class CertificadosController extends Controller
         $certificado = \App\Certificado::find($id);
         $instituto = \App\Instituto::with('diretor')->find($certificado->instituto_id);
         $curso = \App\Curso::with('coordenador')->find($certificado->curso_id);
-        // return view('certificados.print', compact('certificado','curso','instituto'));
-        return PDF::loadView('certificados.print', [$certificado,$curso,$instituto])->stream();
+        $fundo = base_path().'/public/images/fundo.png';
+        $logotipo = storage_path().'/logotipo/'.$instituto->nome.'/'.$instituto->logotipo;
+        // return view('certificados.print', compact('certificado','curso','instituto','logotipo','fundo'));
+        $pdf = PDF::loadView('certificados.print', compact('certificado','curso','instituto','fundo','logotipo'));
+        return $pdf->setPaper('a4', 'landscape')->stream();
     }
 
 
@@ -86,7 +89,6 @@ class CertificadosController extends Controller
         $certificado = \App\Certificado::find($id);
         $instituto = \App\Instituto::with('diretor')->find($certificado->instituto_id);
         $curso = \App\Curso::with('coordenador')->find($certificado->curso_id);
-    	// return view('certificados.print', compact('certificado','curso','instituto'));
-        return PDF::loadView('certificados.print', compact('certificado','curso','instituto'))->download($certificado->nome);
+    	return view('certificados.print', compact('certificado','curso','instituto'));
     }
 }

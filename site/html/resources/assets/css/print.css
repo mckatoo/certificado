@@ -1,0 +1,84 @@
+body{
+}
+
+.certificado{
+    page-break-after: always;
+    font-family: 'Gentium Book Basic', serif;
+    z-index: -1;
+    transform: scale(0.75);
+    transform-origin: 0% 0;
+    position: relative;
+    display: inline-table;
+    width: 297mm;
+    height: 210mm;
+}
+
+.fundo {
+    position: absolute;
+    left: 0mm;
+    bottom: 0mm;
+}
+
+.logotipo {
+    position: absolute;
+    left: 10.406mm;
+    bottom: 171mm;
+    width: 88mm;
+}
+
+.titulo {
+    font-size: 80pt;
+    font-style: italic;
+    position: absolute;
+    left: 45%;
+    top: 10mm;
+}
+
+.descricao{
+    text-align: center;
+    font-size: 20pt;
+    font-weight: bolder;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    resize: none;
+}
+
+.texto-central {
+    text-align: center;
+    top: 30%;
+    width: 100%;
+    font-size: 18pt;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.destaque {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.ass-diretor {
+    position: absolute;
+    margin: 0;
+    top: 85%;
+    left: 20%;
+    width: 25%;
+}
+
+.ass-coordenador {
+    position: absolute;
+    margin: 0;
+    top: 85%;
+    left: 55%;
+    width: 25%;
+}
+
+.assinatura {
+    border-bottom: solid 2px black;
+}
+
+.nome-cargo {
+    text-align: center;
+    font-size: 12pt;
+}

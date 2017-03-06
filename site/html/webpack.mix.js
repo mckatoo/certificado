@@ -50,4 +50,8 @@ mix.disableNotifications();
  	'resources/assets/css/admin.css',
  	],'public/css/admin.css');
 
+ mix.combine([
+ 	'resources/assets/css/print.css',
+ 	],'public/css/print.css');
+
  mix.version();
