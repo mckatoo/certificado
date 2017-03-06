@@ -1,56 +1,50 @@
 body{
-}
-
-.certificado{
-    page-break-after: always;
-    font-family: 'Gentium Book Basic', serif;
-    z-index: -1;
-    transform: scale(0.75);
-    transform-origin: 0% 0;
-    position: relative;
-    display: inline-table;
+    position: absolute;
+    margin: 0;
     width: 297mm;
     height: 210mm;
+    top: 0;
+    left: 0;
+    background-color: blueviolet;
+    font-family: 'Gentium Book Basic', serif;
 }
 
 .fundo {
     position: absolute;
+    z-index: -1;
     left: 0mm;
-    bottom: 0mm;
+    top: 0mm;
+    width: 100%;
+    height: 100%;
 }
 
 .logotipo {
     position: absolute;
-    left: 10.406mm;
-    bottom: 171mm;
     width: 88mm;
+    left: 15mm;
+    top: 15mm;
 }
 
 .titulo {
+    position: absolute;
+    top: 10mm;
+    left: 135mm;
     font-size: 80pt;
     font-style: italic;
-    position: absolute;
-    left: 45%;
-    top: 10mm;
+}
+
+.texto-central {
+    margin-top: 60mm;
+    text-align: center;
+    font-size: 18pt;
+    vertical-align: middle;
+    background-color: aqua;
 }
 
 .descricao{
     text-align: center;
     font-size: 20pt;
     font-weight: bolder;
-    width: 100%;
-    background-color: transparent;
-    border: none;
-    resize: none;
-}
-
-.texto-central {
-    text-align: center;
-    top: 30%;
-    width: 100%;
-    font-size: 18pt;
-    display: table-cell;
-    vertical-align: middle;
 }
 
 .destaque {
@@ -58,24 +52,30 @@ body{
     font-weight: bold;
 }
 
+.assinaturas {
+    text-align: center;
+    background-color: yellow;
+}
+
 .ass-diretor {
-    position: absolute;
-    margin: 0;
-    top: 85%;
-    left: 20%;
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1; /* Fix for IE7 */
+    *display: inline; /* Fix for IE7 */
     width: 25%;
 }
 
 .ass-coordenador {
-    position: absolute;
-    margin: 0;
-    top: 85%;
-    left: 55%;
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1; /* Fix for IE7 */
+    *display: inline; /* Fix for IE7 */
     width: 25%;
 }
 
 .assinatura {
     border-bottom: solid 2px black;
+    height: 20mm;
 }
 
 .nome-cargo {

@@ -4,9 +4,7 @@
 @include('paginas.head')
 
 <body>
-<div class="certificado">
-    @yield('content')
-</div>
+@yield('content')
 
 @yield('scriptjs')
 

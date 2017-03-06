@@ -33,21 +33,23 @@
             @endif
         </p>
         <p>Realizado em {{ strftime('%d de %B de %Y', strtotime($certificado->realizado_em)) }}.</p>
-    </div>
-    <div class="ass-diretor">
-        <div class="assinatura"></div>
-        <div class="nome-cargo">
-            {{ $instituto->diretor()->first()->tratamento }}. {{ $instituto->diretor()->first()->professor }}
-            <br>
-            Diretor
-        </div>
-    </div>
-    <div class="ass-coordenador">
-        <div class="assinatura"></div>
-        <div class="nome-cargo">
-            {{ $curso->coordenador()->first()->tratamento }}. {{ $curso->coordenador()->first()->professor }}
-            <br>
-            Coordenador de {{ $curso->curso }}
+        <div class="assinaturas">
+            <div class="ass-diretor">
+                <div class="assinatura"></div>
+                <div class="nome-cargo">
+                    {{ $instituto->diretor()->first()->tratamento }}. {{ $instituto->diretor()->first()->professor }}
+                    <br>
+                    Diretor
+                </div>
+            </div>
+            <div class="ass-coordenador">
+                <div class="assinatura"></div>
+                <div class="nome-cargo">
+                    {{ $curso->coordenador()->first()->tratamento }}. {{ $curso->coordenador()->first()->professor }}
+                    <br>
+                    Coordenador de {{ $curso->curso }}
+                </div>
+            </div>
         </div>
     </div>
 @endsection
