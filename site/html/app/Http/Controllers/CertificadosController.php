@@ -38,7 +38,6 @@ class CertificadosController extends Controller
             'nota' => 'bail',
             'realizado_em' => 'bail|required|date_format:d/m/Y',
             'curso' => 'bail|required',
-            'lote' => 'bail',
         ]);
         if (is_null($request->id)) {
             $c = new \App\Certificado;
@@ -55,7 +54,6 @@ class CertificadosController extends Controller
         $c->nota = $request->nota;
         $c->realizado_em = DateTime::createFromFormat('d/m/Y', $request->realizado_em);
         $c->curso_id = $request->curso;
-        $c->lote_id = $request->lote;
         $c->save();
 
         return back()->with('success', $mensagem);

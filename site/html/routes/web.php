@@ -29,6 +29,7 @@ Route::group(['prefix' => 'certificados','as' => 'certificados.'], function() {
 
 Route::group(['prefix' => 'lotes','as' => 'lotes.'], function() {
     Route::get('', 				        ['as' => 'index', 'uses' => 'LoteController@index']);
+    Route::post('salvarLote',           ['as' => 'salvarLote', 'uses' => 'LoteController@salvarLote']);
     Route::post('salvar',		        ['as' => 'salvar', 'uses' => 'LoteController@salvar']);
     Route::post('apagar',               ['as' => 'apagar', 'uses' => 'LoteController@apagar']);
     Route::get('print/{id}',            ['as' => 'print', 'uses' => 'LoteController@print']);

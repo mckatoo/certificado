@@ -269,3 +269,11 @@ h5{
     background-color: #fff;
     border: 1px solid #777;
 }
+
+.table > thead > tr > th{
+    vertical-align: middle;
+}
+
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
