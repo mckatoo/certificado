@@ -23,15 +23,15 @@
                                             </div>
                                             <div class="form-group col-lg-12">
                                             {!! Form::label('titulo', 'Título', ['class' => 'control-label']) !!}
-                                            {!! Form::textarea('titulo', old('titulo'), ['class' => 'form-control', 'required' => 'required', 'rows' => '5']) !!}
+                                            {!! Form::textarea('titulo', old('titulo'), ['class' => 'form-control', 'required' => 'required', 'rows' => '3', 'data-limit-rows' => 'true']) !!}
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 {!! Form::label('carga_horaria', 'Carga Horária', ['class' => 'control-label']) !!}
-                                                {!! Form::number('carga_horaria', old('carga_horaria'), ['class' => 'form-control', 'required' => 'required']) !!}
+                                                {!! Form::number('carga_horaria', old('carga_horaria'), ['class' => 'form-control', 'required' => 'required','step' => '1']) !!}
                                             </div>
                                             <div class="form-group col-lg-4">
                                                 {!! Form::label('nota', 'Nota', ['class' => 'control-label']) !!}
-                                                {!! Form::number('nota', old('nota'), ['class' => 'form-control']) !!}
+                                                {!! Form::number('nota', old('nota'), ['class' => 'form-control','step' => '0.01']) !!}
                                             </div>
                                             <div class="form-group col-lg-4">
                                             {!! Form::label('realizado_em', 'Realizado em', ['class' => 'control-label']) !!}
@@ -95,15 +95,15 @@
                                                             </div>
                                                             <div class="form-group col-lg-12">
                                                                 {!! Form::label('titulo', 'Título', ['class' => 'control-label']) !!}
-                                                                {!! Form::textarea('titulo', old('titulo',$c->titulo), ['class' => 'form-control', 'required' => 'required', 'rows' => '5']) !!}
+                                                                {!! Form::textarea('titulo', old('titulo',$c->titulo), ['class' => 'form-control', 'required' => 'required', 'rows' => '3', 'data-limit-rows' => 'true']) !!}
                                                             </div>
                                                             <div class="form-group col-lg-4">
                                                                 {!! Form::label('carga_horaria', 'Carga Horária', ['class' => 'control-label']) !!}
-                                                                {!! Form::number('carga_horaria', old('carga_horaria',$c->carga_horaria), ['class' => 'form-control', 'required' => 'required']) !!}
+                                                                {!! Form::number('carga_horaria', old('carga_horaria',$c->carga_horaria), ['class' => 'form-control', 'required' => 'required','step' => '1']) !!}
                                                             </div>
                                                             <div class="form-group col-lg-4">
                                                                 {!! Form::label('nota', 'Nota', ['class' => 'control-label']) !!}
-                                                                {!! Form::number('nota', old('nota',$c->nota), ['class' => 'form-control']) !!}
+                                                                {!! Form::number('nota', old('nota',$c->nota), ['class' => 'form-control','step' => '0.01']) !!}
                                                             </div>
                                                             <div class="form-group col-lg-4">
                                                                 {!! Form::label('realizado_em', 'Realizado em', ['class' => 'control-label']) !!}

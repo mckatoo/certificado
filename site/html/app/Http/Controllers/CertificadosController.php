@@ -12,6 +12,8 @@ class CertificadosController extends Controller
     {
         $this->middleware('auth');
         setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+        date_default_timezone_set('America/Sao_Paulo');
+        \Carbon\Carbon::setLocale('pt_BR');
     }
 
 
@@ -21,7 +23,8 @@ class CertificadosController extends Controller
         $professores = \App\Professor::orderBy('created_at','desc')->get();
         $certificados = \App\Certificado::orderBy('created_at','desc')->get();
         $cursos = \App\Curso::orderBy('curso','asc')->get();
-        return view('certificados.index',compact('professores','institutos','cursos','certificados'));
+        $lotes = \App\Lote::orderBy('created_at','desc')->get();
+        return view('certificados.index',compact('professores','institutos','cursos','certificados','lotes'));
     }
 
 

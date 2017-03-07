@@ -137,8 +137,8 @@
                                     <tr>
                                         <td>{{ $u->name }}</td>
                                         <td>{{ $u->email }}</td>
-                                        <td>{{ $u->created_at }}</td>
-                                        <td>{{ $u->updated_at }}</td>
+                                        <td>{{ $u->created_at->format('d/m/Y H:i') }}</td>
+                                        <td>{{ $u->updated_at->format('d/m/Y H:i') }}</td>
                                         <td class="text-center">
                                             <a class="btn btn-xs btn-danger" data-toggle="modal" href='#modal-Apagar-{{ $u->id }}'>Apagar</a>
                                             <div class="modal fade" id="modal-Apagar-{{ $u->id }}">

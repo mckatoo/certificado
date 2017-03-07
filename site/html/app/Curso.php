@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Curso extends Model
 {
     protected $table = 'curso';
-    protected $date = 'created_at, updated_at';
+    protected $dates = ['created_at', 'updated_at'];
 
     /**
     * Relacionamentos

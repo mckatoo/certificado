@@ -27,7 +27,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $date = ['created_at','updated_at'];
+    protected $dates = ['created_at','updated_at'];
 
 
     public function tipo()

@@ -5,7 +5,6 @@ body{
     height: 210mm;
     top: 0;
     left: 0;
-    background-color: blueviolet;
     font-family: 'Gentium Book Basic', serif;
 }
 
@@ -38,7 +37,6 @@ body{
     text-align: center;
     font-size: 18pt;
     vertical-align: middle;
-    background-color: aqua;
 }
 
 .descricao{
@@ -54,7 +52,6 @@ body{
 
 .assinaturas {
     text-align: center;
-    background-color: yellow;
 }
 
 .ass-diretor {
@@ -62,6 +59,7 @@ body{
     vertical-align: top;
     zoom: 1; /* Fix for IE7 */
     *display: inline; /* Fix for IE7 */
+    margin-left: 20%;
     width: 25%;
 }
 
@@ -71,6 +69,7 @@ body{
     zoom: 1; /* Fix for IE7 */
     *display: inline; /* Fix for IE7 */
     width: 25%;
+    margin-left: 10%;
 }
 
 .assinatura {
