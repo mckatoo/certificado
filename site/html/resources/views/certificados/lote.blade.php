@@ -128,7 +128,7 @@
                                                                 </div>
                                                                 <div class="panel-footer">
                                                                     {!! Form::reset('Cancelar', ['class' => 'btn btn-default', 'data-dismiss' => 'modal']) !!}
-                                                                    {!! Form::submit('Salvar', ['class' => 'btn btn-primary pull-right cancelar']) !!}
+                                                                    {!! Form::submit('Adicionar', ['class' => 'btn btn-primary pull-right cancelar']) !!}
                                                                     {!! Form::close() !!}
                                                                 </div>
                                                             </div>
