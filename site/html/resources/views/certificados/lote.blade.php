@@ -144,7 +144,34 @@
                                                                         @foreach ($certificados->where('lote_id',$l->id) as $c)
                                                                             <tr>
                                                                                 <td>{{ $c->nome }}</td>
-                                                                                <td></td>
+                                                                                <td class="text-center">
+                                                                                    <a class="btn btn-xs btn-danger" data-toggle="modal" href='#modal-apaga-cert{{ $c->id }}'>Apagar</a>
+                                                                                    <div class="modal fade" id="modal-apaga-cert{{ $c->id }}">
+                                                                                        <div class="modal-dialog">
+                                                                                            <div class="modal-content">
+                                                                                                <div class="modal-header">
+                                                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                                                                    <h4 class="modal-title">Apagar Certificado de {{ $c->nome }}</h4>
+                                                                                                </div>
+                                                                                                <div class="modal-body text-left">
+                                                                                                    <br>
+                                                                                                    {!! Form::open(['route' => 'certificados.apagar', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                                                                                                    {!! Form::hidden('id', $c->id) !!}
+                                                                                                    <div class="alert-danger">
+                                                                                                        <div class="panel-body">
+                                                                                                            <h3>Tem certeza que deseja apagar o Certificado de {{ $c->nome }} referente ao curso de {{ $c->cursos->curso }} realizado em {{ $c->realizado_em }}?</h3>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="modal-footer">
+                                                                                                        {!! Form::reset('Cancelar', ['class' => 'btn btn-default', 'data-dismiss' => 'modal']) !!}
+                                                                                                        {!! Form::submit('Apagar', ['class' => 'btn btn-danger']) !!}
+                                                                                                    </div>
+                                                                                                        {!! Form::close() !!}
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
                                                                             </tr>
                                                                         @endforeach
                                                                     </tbody>
